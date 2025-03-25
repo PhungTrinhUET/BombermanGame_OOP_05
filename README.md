@@ -1,6 +1,6 @@
 # Dự án Game Bomberman
 
-Đây là bài tập lớn của nhóm sinh viên gồm Trường Trinh Phùng và Đào Ngọc Bích, khóa K66 thuộc Khoa Công nghệ Nông nghiệp, Trường Đại học Công nghệ – Đại học Quốc gia. Dự án được thực hiện trong khuôn khổ khóa học Lập trình Hướng đối tượng học kỳ 2 (2024-2025), với mong muốn mang đến cho người chơi trải nghiệm giải trí đơn giản nhưng vô cùng cuốn hút.
+Đây là bài tập lớn của nhóm sinh viên gồm **Phùng Trường Trinh** và **Đào Ngọc Bích**, khóa K66 Khoa Công nghệ Nông nghiệp, Trường Đại học Công nghệ – Đại học Quốc gia Hà Nội. Dự án được thực hiện trong khuôn khổ khóa học Lập trình Hướng đối tượng học kỳ 2 (2024-2025), với mong muốn mang đến cho người chơi trải nghiệm giải trí đơn giản nhưng vô cùng cuốn hút.
 
 ## Giới thiệu 🧱
 
