@@ -10,8 +10,8 @@ Bomberman là trò chơi kinh điển, được thiết kế để dễ tiếp c
 
 | STT | Họ và Tên             | MSSV       | Email                   | Github Account                                            |
 |-----|-----------------------|------------|-------------------------|-----------------------------------------------------------|
-| 1   | Trường Trinh Phùng    | [MSSV]     | [email@example.com]     | [[github.com/username]](https://github.com/PhungTrinhUET) |
-| 2   | Đào Ngọc Bích         | [MSSV]     | [email@example.com]     | [[github.com/username]](https://github.com/ngocbich2003)  |
+| 1   | Trường Trinh Phùng    | [21020856]     | [phungtruongtrinhuet@gmail.com]     | [[github.com/username]](https://github.com/PhungTrinhUET) |
+| 2   | Đào Ngọc Bích         | [21020804]     | [21020804@vnu.edu.vn]     | [[github.com/username]](https://github.com/ngocbich2003)  |
 
 ## Hướng dẫn cài đặt
 
