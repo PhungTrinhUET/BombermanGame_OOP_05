@@ -1,0 +1,9 @@
+# IntelliJ
+.idea/
+*.iml
+
+# Maven
+target/
+
+# Thư mục out (nếu IntelliJ tạo ra)
+out/
