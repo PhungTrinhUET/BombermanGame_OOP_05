@@ -1,4 +1,4 @@
-package vn.edu.vnu.uet;
+package uet.oop.bomberman;
 
 import javafx.application.Application;
 import javafx.stage.Stage;

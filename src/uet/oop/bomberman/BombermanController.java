@@ -1,4 +1,4 @@
-package vn.edu.vnu.uet;
+package uet.oop.bomberman;
 
 public class BombermanController {
 }
