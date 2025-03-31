@@ -21,7 +21,11 @@ public abstract class BreakableEntity extends Entity {
     protected int animate = 0;
     protected final int animate_MAX_VALUE = 7500;
 
-
+    /**
+     * Khởi tạo đối tượng sử dụng phương thức khởi tạo của lớp cha Entity.
+     * Gán trạng thái ban đầu chưa bị phá hủy, không đang nổ cho đối tượng.
+     * Khởi tạo đối tượng nền Grass.
+     */
     public BreakableEntity(int xUnit, int yUnit, Image img) {
         super(xUnit, yUnit, img);
         isBroken = false;
