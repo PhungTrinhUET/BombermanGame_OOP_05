@@ -32,7 +32,10 @@ public abstract class BreakableEntity extends Entity {
         isExploding = false;
     }
 
-
+    /**
+     * Phương thức kiểm tra trạng thái của đối tượng.
+     * @return trạng thái hiện tại của đối tượng, true = đã bị phá hủy, false = chưa bị phá hủy
+     */
     public boolean isBroken() {
         return isBroken;
     }
