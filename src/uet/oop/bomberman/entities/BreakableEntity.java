@@ -67,7 +67,11 @@ public abstract class BreakableEntity extends Entity {
         }, 500L);
     }
 
-
+    /**
+     * Ghi đè phương thức render() của lớp cha Entity.
+     * Chỉ cho phép render khi đối tượng có trạng thái chưa bị phá hủy.
+     * @param gc GraphicsContext
+     */
     @Override
     public void render(GraphicsContext gc) {
         if (!isBroken) {
