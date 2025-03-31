@@ -48,7 +48,11 @@ public abstract class BreakableEntity extends Entity {
         return isExploding;
     }
 
-
+    /**
+     * Phương thức chuyển trạng thái của đối tượng.
+     * Gán trạng thái đang nổ cho đối tượng.
+     * Cài đặt timer, gán trạng thái đã bị phá hủy cho đối tượng sau 750ms.
+     */
     public void breakEntity() {
         isExploding = true;
         animate = 0;
