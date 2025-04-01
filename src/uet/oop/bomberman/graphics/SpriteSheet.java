@@ -24,6 +24,7 @@ public class SpriteSheet {
         int h = image.getHeight();
         _pixels = new int[w * h];
         image.getRGB(0, 0, w, h, _pixels, 0, w);
+
     }
 
 }
