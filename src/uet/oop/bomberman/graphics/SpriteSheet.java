@@ -1,6 +1,10 @@
 package uet.oop.bomberman.graphics;
 
 import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.io.IOException;
+import java.net.URL;
 
 public class SpriteSheet {
 
@@ -18,13 +22,17 @@ public class SpriteSheet {
         load();
     }
 
-    public void load() {
-        image = SpriteLoader.loadImage(_path);
-        int w = image.getWidth();
-        int h = image.getHeight();
-        _pixels = new int[w * h];
-        image.getRGB(0, 0, w, h, _pixels, 0, w);
-
+    private void load() {
+        try {
+            image = ImageIO.read(getClass().getResource(_path));
+            int w = image.getWidth();
+            int h = image.getHeight();
+            image.getRGB(0, 0, w, h, _pixels, 0, w);
+        } catch (IOException e) {
+            System.out.println("null");
+            e.printStackTrace();
+            System.exit(0);
+        }
     }
 
 }
