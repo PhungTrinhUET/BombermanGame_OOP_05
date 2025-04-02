@@ -39,6 +39,12 @@ public class Sprite {
         load();
     }
 
+    public Sprite(int size, int color) {
+        SIZE = size;
+        _pixels = new int[SIZE * SIZE];
+        setColor(color);
+    }
+
     private void load() {
         for (int y = 0; y < SIZE; y++) {
             for (int x = 0; x < SIZE; x++) {
