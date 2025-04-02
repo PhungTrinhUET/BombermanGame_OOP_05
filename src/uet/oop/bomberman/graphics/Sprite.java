@@ -28,5 +28,22 @@ public class Sprite {
     public static Sprite wall = new Sprite(DEFAULT_SIZE, 5, 0, SpriteSheet.tiles, 16, 16);
     public static Sprite portal = new Sprite(DEFAULT_SIZE, 4, 0, SpriteSheet.tiles, 14, 14);
 
+    public Sprite(int size, int x, int y, SpriteSheet sheet, int rw, int rh) {
+        SIZE = size;
+        _pixels = new int[SIZE * SIZE];
+        _x = x * SIZE;
+        _y = y * SIZE;
+        _sheet = sheet;
+        _realWidth = rw;
+        _realHeight = rh;
+        load();
+    }
 
+    private void load() {
+        for (int y = 0; y < SIZE; y++) {
+            for (int x = 0; x < SIZE; x++) {
+                _pixels[x + y * SIZE] = _sheet._pixels[(x + _x) + (y + _y) * _sheet.SIZE];
+            }
+        }
+    }
 }
