@@ -78,4 +78,31 @@ public class Sprite {
         int diff = time / 2;
         return (animate % time > diff) ? x1 : x2;
     }
+
+    public int getSize() {
+        return SIZE;
+    }
+
+    public int getPixel(int i) {
+        return _pixels[i];
+    }
+
+    public Image getFxImage() {
+        WritableImage wr = new WritableImage(SIZE, SIZE);
+        PixelWriter pw = wr.getPixelWriter();
+        for (int x = 0; x < SIZE; x++) {
+            for (int y = 0; y < SIZE; y++) {
+                if ( _pixels[x + y * SIZE] == TRANSPARENT_COLOR) {
+                    pw.setArgb(x, y, 0);
+                }
+                else {
+                    pw.setArgb(x, y, _pixels[x + y * SIZE]);
+                }
+            }
+        }
+        Image input = new ImageView(wr).getImage();
+        return resample(input, SCALED_SIZE / DEFAULT_SIZE);
+    }
+
+
 }
