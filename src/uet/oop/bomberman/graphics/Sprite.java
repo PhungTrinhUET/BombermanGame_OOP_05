@@ -45,6 +45,12 @@ public class Sprite {
         setColor(color);
     }
 
+    private void setColor(int color) {
+        for (int i = 0; i < _pixels.length; i++) {
+            _pixels[i] = color;
+        }
+    }
+
     private void load() {
         for (int y = 0; y < SIZE; y++) {
             for (int x = 0; x < SIZE; x++) {
