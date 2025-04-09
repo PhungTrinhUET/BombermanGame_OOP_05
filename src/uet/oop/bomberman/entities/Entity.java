@@ -12,7 +12,6 @@ import uet.oop.bomberman.entities.character.Enemy;
 import uet.oop.bomberman.entities.character.enemy.Kondoria;
 import uet.oop.bomberman.entities.character.enemy.Oneal;
 import uet.oop.bomberman.entities.unbreakable.Grass;
-import uet.oop.bomberman.entities.unbreakable.Wall;
 import uet.oop.bomberman.graphics.Sprite;
 import uet.oop.bomberman.util.gameUtil.Board;
 
