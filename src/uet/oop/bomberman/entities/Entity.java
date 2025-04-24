@@ -70,10 +70,10 @@ public abstract class Entity {
     public double getBotY() {
         return this.y + Sprite.SCALED_SIZE - spriteOffsetBot - 1;
     }
-
-    public void render(GraphicsContext gc) {
-        gc.drawImage(img, x - board.boardOffsetX, y + Sprite.SCALED_SIZE - board.boardOffsetY);
-    }
+//
+//    public void render(GraphicsContext gc) {
+//        gc.drawImage(img, x - board.boardOffsetX, y + Sprite.SCALED_SIZE - board.boardOffsetY);
+//    }
 
     public boolean isWall() {
         return this instanceof Wall;
