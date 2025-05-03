@@ -119,9 +119,9 @@ public final class EnemyAI {
                 if (direction == MovingEntity.directionRight) addX++;
                 try {
                     Enemy enemy1 = enemy.getClass().getConstructor(int.class, int.class).newInstance(top.x, top.y);
-//                    if (enemy1.canMove(direction)) {
-//                        pq.add(new Node(top.x + addX, top.y + addY, direction, top));
-//                    }
+                    if (enemy1.canMove(direction)) {
+                        pq.add(new Node(top.x + addX, top.y + addY, direction, top));
+                    }
                 } catch (Exception e) {
                     System.out.println("Enemy does not have this constructor");
                 }
