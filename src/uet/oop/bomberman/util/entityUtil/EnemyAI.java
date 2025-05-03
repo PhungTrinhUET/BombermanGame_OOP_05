@@ -50,6 +50,21 @@ public final class EnemyAI {
             this.euclidVal = (int) Math.sqrt(Math.pow((bomberPosX - x), 2) + Math.pow((bomberPosY - y), 2));
         }
 
+        /**
+         * Method override in comparable.
+         *
+         * @param that the object to be compared.
+         * @return the compare result, using manhattan value
+         * and the step it took from the first posiotion.
+         */
+        @Override
+        public int compareTo(Node that) {
+            int comp = (this.euclidVal + this.step) - (that.euclidVal + that.step);
+            if (comp != 0) return comp;
+            else return this.euclidVal - that.euclidVal;
+        }
+    }
+
 
 
 
