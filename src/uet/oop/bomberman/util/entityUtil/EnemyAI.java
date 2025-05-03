@@ -128,7 +128,14 @@ public final class EnemyAI {
 
             }
         }
-
+        Node top = pq.peek();
+        if (top == null) {
+            return 0;
+        }
+        if (top.step == 1) return 0;
+        while (top.step != 2) {
+            top = top.prev;
+        }
         return top.direction;
     }
 }
