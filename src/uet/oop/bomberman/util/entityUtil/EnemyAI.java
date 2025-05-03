@@ -65,7 +65,20 @@ public final class EnemyAI {
         }
     }
 
-
+    /**
+     * check if one direction is moving backward from the other.
+     *
+     * @param direction1 input direction1.
+     * @param direction2 input direction2.
+     * @return result.
+     */
+    private static boolean movingBackward(int direction1, int direction2) {
+        if (direction1 == MovingEntity.directionUp && direction2 == MovingEntity.directionDown) return true;
+        if (direction1 == MovingEntity.directionLeft && direction2 == MovingEntity.directionRight) return true;
+        if (direction1 == MovingEntity.directionDown && direction2 == MovingEntity.directionUp) return true;
+        if (direction1 == MovingEntity.directionRight && direction2 == MovingEntity.directionLeft) return true;
+        return false;
+    }
 
 
 
