@@ -72,12 +72,12 @@ public abstract class BreakableEntity extends Entity {
      * Chỉ cho phép render khi đối tượng có trạng thái chưa bị phá hủy.
      * @param gc GraphicsContext
      */
-//    @Override
-//    public void render(GraphicsContext gc) {
-//        if (!isBroken) {
-//            super.render(gc);
-//        }
-//    }
+    @Override
+    public void render(GraphicsContext gc) {
+        if (!isBroken) {
+            super.render(gc);
+        }
+    }
 
     protected void animate() {
         if (animate < animate_MAX_VALUE) {
