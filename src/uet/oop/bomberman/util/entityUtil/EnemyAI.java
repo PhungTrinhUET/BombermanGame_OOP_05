@@ -89,5 +89,16 @@ public final class EnemyAI {
      * @param preDir the direction enemy took before this.
      * @return the next step.
      */
+    public static int find(Enemy enemy, Bomber bomber, int preDir) {
+        bomberPosX = (int) (bomber.getTopX() / Sprite.SCALED_SIZE);
+        bomberPosY = (int) (bomber.getTopY() / Sprite.SCALED_SIZE);
 
+        Node initNode = new Node((int) (enemy.getTopX() + enemy.getSpeed() * 2) / Sprite.SCALED_SIZE
+                , (int) (enemy.getTopY() + enemy.getSpeed() * 2) / Sprite.SCALED_SIZE, preDir, null);
+        if (Math.abs(initNode.x - bomberPosX) >= 15) return 0;
+        if (Math.abs(initNode.y - bomberPosY) >= 15) return 0;
+
+
+
+    }
 }
