@@ -80,6 +80,14 @@ public final class EnemyAI {
         return false;
     }
 
-
+    /**
+     * find the next step from the enemy's start position in the shortest path to
+     * bomber's position, only one step because bomber is always moving.
+     *
+     * @param enemy  the enemy to consider.
+     * @param bomber the bomber to get posiotion.
+     * @param preDir the direction enemy took before this.
+     * @return the next step.
+     */
 
 }
