@@ -98,7 +98,37 @@ public final class EnemyAI {
         if (Math.abs(initNode.x - bomberPosX) >= 15) return 0;
         if (Math.abs(initNode.y - bomberPosY) >= 15) return 0;
 
+        PriorityQueue<Node> pq = new PriorityQueue<>();
+        pq.add(initNode);
+        int loop_count = 0;
+        while (!pq.isEmpty()) {
+            loop_count++;
+            Node top = pq.peek();
+            if (top.x == bomberPosX && top.y == bomberPosY) {
+                break;
+            }
+            if (top.step >= 15 || pq.size() >= 15 || loop_count == 15)  // return 0 if it takes too long for the enemy to get to bomber's position
+                return 0;                                               // Average max step value is 18 in Level 1.
+            top = pq.poll();
+            for (int direction = 1; direction <= 4; ++direction) {
+                if (movingBackward(direction, top.direction)) continue;
+                int addX = 0, addY = 0;
+                if (direction == MovingEntity.directionUp) addY--;
+                if (direction == MovingEntity.directionDown) addY++;
+                if (direction == MovingEntity.directionLeft) addX--;
+                if (direction == MovingEntity.directionRight) addX++;
+                try {
+                    Enemy enemy1 = enemy.getClass().getConstructor(int.class, int.class).newInstance(top.x, top.y);
+                    if (enemy1.canMove(direction)) {
+                        pq.add(new Node(top.x + addX, top.y + addY, direction, top));
+                    }
+                } catch (Exception e) {
+                    System.out.println("Enemy does not have this constructor");
+                }
 
+            }
+        }
 
+        return top.direction;
     }
 }
