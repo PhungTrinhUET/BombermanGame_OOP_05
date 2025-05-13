@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Main-Class: uet.oop.bomberman.Launcher
+Class-Path: javafx-controls-15.jar javafx-base-15.jar javafx-fxml-15.jar
+  javafx-graphics-15-win.jar javafx-media-15-win.jar javafx-controls-15-
+ win.jar javafx-fxml-15-win.jar javafx-graphics-15.jar javafx-base-15-wi
+ n.jar javafx-media-15.jar
+
