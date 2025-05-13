@@ -46,4 +46,8 @@ public abstract class Sound {
     public static final MediaPlayer endingSE = new MediaPlayer(
             new Media(Sound.class.getResource("/audio/Ending.mp3").toString())
     );
+
+    public static MediaPlayer cloneOf(MediaPlayer that) {
+        return new MediaPlayer(that.getMedia());
+    }
 }
