@@ -323,7 +323,36 @@ public class Board implements Serializable {
 
     }
 
+    /**
+     * Tính toán hướng di chuyển của kẻ thù.
+     * @param enemy kẻ thù cần tính toán
+     * @return hướng di chuyển
+     */
 
+    public int EnemyAIDirection(Enemy enemy) {
+        return EnemyAI.find(enemy, bomber, enemy.get_direction());
+    }
+
+
+    protected void layBomb(MovingEntity entity) {
+        if (!entity.isBomber() || !Controller.layBomb) return;
+        Controller.layBomb = false;
+        if (bombs.size() >= bomber.getMaxBombCount()) return;
+        MediaPlayer layBombSound = Sound.cloneOf(Sound.LayBombSound);
+        layBombSound.play();
+        (new Timer()).schedule(new TimerTask() {
+            @Override
+            public void run() {layBombSound.stop();
+            }
+        }, (int) layBombSound.getStopTime().toMillis());
+
+        double bombX = entity.getTopX() + entity.getSpeed();
+        double bombY = entity.getTopY() + entity.getSpeed();
+
+        Bomb bom = new Bomb((int) bombX / (Sprite.SCALED_SIZE), (int) bombY / Sprite.SCALED_SIZE);
+        bom.setJustLay(true);
+        bombs.add(bom);
+    }
 
 
 }
