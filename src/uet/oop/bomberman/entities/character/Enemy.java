@@ -118,7 +118,7 @@ public abstract class Enemy extends MovingEntity {
      *
      * @see #canMove(int) phương thức kiểm tra tính khả thi của việc di chuyển theo một hướng cụ thể.
      */
-    public void randomMovement() {
+    protected void randomMovement() {
         if (this._direction == 0 || !canMove(this._direction)) isBlocked = true;
         int temp = 0;
         if (isBlocked || StdRandom.uniformInt(100) % 2 == 0) {
@@ -170,6 +170,7 @@ public abstract class Enemy extends MovingEntity {
             if (temp != 0) _direction = temp;
             else if (isBlocked) randomMovement();
         }
+        move();
     }
 
     //Tìm hướng di chuyển khi không có hướng nào
@@ -199,7 +200,7 @@ public abstract class Enemy extends MovingEntity {
         double tempSpeed = Math.ceil(speed);
         Entity temp = board.getEntityCollideWith(this, addX * tempSpeed, addY * tempSpeed);
         if (temp == null) {
-            return false;
+            return true;
         } else return canPass(temp);
     }
 
@@ -211,8 +212,8 @@ public abstract class Enemy extends MovingEntity {
         if (_direction == directionLeft) addX--;
         if (_direction == directionRight) addX++;
         if (addX != 0 || addY != 0) { //nếu di chuyển thì cập nhật tọa độ thực tế
-            _x += addX*speed; //di chuyển khoảng cách bằng tốc độ theo hướng chọn.
-            _y += addY*speed;
+            _x += addX * speed; //di chuyển khoảng cách bằng tốc độ theo hướng chọn.
+            _y += addY * speed;
         }
     }
 
