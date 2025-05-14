@@ -1,12 +1,14 @@
-# Dự án Game Bomberman
+# 🚀 Dự án Game Bomberman
 
 Đây là bài tập lớn của nhóm sinh viên gồm **Phùng Trường Trinh** và **Đào Ngọc Bích**, khóa K66 Khoa Công nghệ Nông nghiệp, Trường Đại học Công nghệ – Đại học Quốc gia Hà Nội. Dự án được thực hiện trong khuôn khổ khóa học Lập trình Hướng đối tượng học kỳ 2 (2024-2025), với mong muốn mang đến cho người chơi trải nghiệm giải trí đơn giản nhưng vô cùng cuốn hút.
 
 ## Giới thiệu 🧱
 
-Bomberman là trò chơi kinh điển, được thiết kế để dễ tiếp cận và thú vị cho mọi đối tượng người chơi. Không đòi hỏi kỹ năng cao hay công nghệ hiện đại, trò chơi chú trọng vào tính giải trí và sự tương tác thông qua những pha hành động nhanh nhẹn và chiến thuật đơn giản. Giao diện thân thiện cùng cách chơi mượt mà hứa hẹn sẽ đem lại những phút giây thư giãn và giải trí tuyệt vời.
-
-## Thành viên nhóm 👨‍❤️‍💋‍👨
+Bomberman vốn là huyền thoại game arcade dành cho mọi đối tượng:  
+- **Dễ tiếp cận**: Chỉ với 4 phím di chuyển và một nút đặt bom.  
+- **Chiến thuật đơn giản**: Lập kế hoạch đặt bom, né pháo rồi “oanh tạc” dứt điểm kẻ thù.  
+- **Giải trí bùng nổ**: Mỗi màn chơi là một mê cung đầy ắp bất ngờ—liệu bạn có tìm được Portal và tiêu diệt tất cả Enemy trước khi hết thời gian?
+## Thành viên nhóm
 
 | STT | Họ và Tên             | MSSV       | Email                   | Github Account                                            |
 |-----|-----------------------|------------|-------------------------|-----------------------------------------------------------|
@@ -74,3 +76,9 @@ Khối không phá được, không di chuyển vào được.
   - Gặp Bomb khác → kích hoạt nổ ngay
 
 ---
+
+## 🎮 Demo Gameplay
+
+Dưới đây là hình ảnh Stage 1 của trò chơi:
+![HomeGame](https://github.com/user-attachments/assets/ab222b34-9bb6-4dec-b2ba-44384126198c)
+
