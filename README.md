@@ -18,3 +18,5 @@ Bomberman là trò chơi kinh điển, được thiết kế để dễ tiếp c
 1. **Clone repository:**
    ```bash
    [git clone https://github.com/yourusername/your-repository.git](https://github.com/PhungTrinhUET/BombermanGame_OOP_05.git)
+2. ## UML Class Diagram
+![UML Class Diagram](https://github.com/user-attachments/assets/59ed9a0b-fb7d-4ef2-8f5f-c7706ae599e2)
