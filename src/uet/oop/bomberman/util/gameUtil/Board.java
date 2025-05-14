@@ -174,6 +174,155 @@ public class Board implements Serializable {
         }
     }
 
+    public Layer getLayerCollideWith(Entity entity) {
+
+        int xUnitTop = (int) entity.getTopX() / Sprite.SCALED_SIZE;
+        int yUnitTop = (int) entity.getTopY() / Sprite.SCALED_SIZE;
+        int xUnitBot = (int) entity.getBotX() / Sprite.SCALED_SIZE;
+        int yUnitBot = (int) entity.getBotY() / Sprite.SCALED_SIZE;
+
+        ArrayList<Layer> res = new ArrayList<>();
+        Layer layer = stillObjects.get(yUnitTop * nCol + xUnitTop);
+        if (layer != null && !(layer.getTop().isGrass())
+                && collide(entity, layer.getTop())) {
+            res.add(layer);
+        }
+
+        layer = stillObjects.get(yUnitBot * nCol + xUnitBot);
+        if (layer != null && !(layer.getTop().isGrass())
+                && collide(entity, layer.getTop())) {
+            res.add(layer);
+        }
+
+        layer = stillObjects.get(yUnitTop * nCol + xUnitBot);
+        if (layer != null && !(layer.getTop().isGrass())
+                && collide(entity, layer.getTop())) {
+            res.add(layer);
+        }
+
+        layer = stillObjects.get(yUnitBot * nCol + xUnitTop);
+        if (layer != null && !(layer.getTop().isGrass())
+                && collide(entity, layer.getTop())) {
+            res.add(layer);
+        }
+
+
+        if (res.size() == 0) return null;
+        res.sort(new Comparator<Layer>() {
+            @Override
+            public int compare(Layer o1, Layer o2) {
+
+                Entity e1 = o1.getTop();
+                Entity e2 = o2.getTop();
+
+                if (!e1.canBePassed() && e2.canBePassed()) {
+                    return -1;
+                } else if (e1.canBePassed() && !e2.canBePassed()) {
+                    return 1;
+                } else if (!e1.canBePassed() && !e2.canBePassed()) {
+                    if (e1.isWall()) {
+                        return -1;
+                    } else if (e2.isWall()) {
+                        return 1;
+                    } else return 0;
+                }
+                return 0;
+            }
+        });
+        return res.get(0);
+    }
+
+    public Entity getEntityCollideWith(Entity entity, double addX, double addY) {
+        Grass temp = new Grass(0, 0);
+        temp.setTopX(entity.getTopX() + addX);
+        temp.setTopY(entity.getTopY() + addY);
+        temp.setBotX(entity.getBotX() + addX);
+        temp.setBotY(entity.getBotY() + addY);
+
+
+        for (Bomb bomb : bombs) {
+            if (!bomb.isJustLay() && collide(bomb, temp)) {
+                return bomb;
+            }
+        }
+
+        Layer layer = getLayerCollideWith(temp);
+        if (layer != null && collide(temp, layer.getTop()))
+            return layer.getTop();
+
+        return null;
+    }
+
+    public boolean collide(Entity entity1, Entity entity2) {
+        double xTop1 = entity1.getTopX();
+        double yTop1 = entity1.getTopY();
+        double xBot1 = entity1.getBotX();
+        double yBot1 = entity1.getBotY();
+        double xTop2 = entity2.getTopX();
+        double yTop2 = entity2.getTopY();
+        double xBot2 = entity2.getBotX();
+        double yBot2 = entity2.getBotY();
+        if (yTop2 >= yTop1 && yTop2 <= yBot1
+                || yBot2 >= yTop1 && yBot2 <= yBot1
+                || yTop1 >= yTop2 && yTop1 <= yBot2
+                || yBot1 >= yTop2 && yBot1 <= yBot2) {
+            if (xTop2 >= xTop1 && xTop2 <= xBot1
+                    || xBot2 >= xTop1 && xBot2 <= xBot1
+                    || xTop1 >= xTop2 && xTop1 <= xBot2
+                    || xBot1 >= xTop2 && xBot1 <= xBot2) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void bomberCollide() {
+        if (bomber.isKilled()) return;
+        bombs.forEach(bomb -> {
+            if (bomb.isExploding() && collide(bomber, bomb)) bomber.kill();
+        });
+        flames.forEach(flame -> {
+            if (collide(bomber, flame)) bomber.kill();
+        });
+        enemies.forEach(movEn -> {
+            if (!movEn.isKilled() && collide(bomber, movEn)) bomber.kill();
+        });
+        if (bomber.isKilled()) {
+            Sound.bomberisKilledSound.play();
+            (new Timer()).schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    Sound.bomberisKilledSound.stop();
+                }
+            }, (int) Sound.bomberisKilledSound.getStopTime().toMillis());
+        }
+    }
+
+    public void enemyCollide() {
+        for (int i = 0; i < enemies.size(); ++i) {
+            MovingEntity entity = enemies.get(i);
+            for (int j = 0; j < flames.size(); ++j) {
+                Flame flame = flames.get(j);
+                if (collide(entity, flame)) {
+                    entity.kill();
+                }
+            }
+            if ((entity).isDead()) {
+                enemies.remove(i);
+                if (enemies.isEmpty()) {
+                    Sound.allEnemiesIsKilledSound.play();
+                    (new Timer()).schedule(new TimerTask() {
+                        @Override
+                        public void run() {
+                            Sound.allEnemiesIsKilledSound.stop();
+                        }
+                    }, (int) Sound.allEnemiesIsKilledSound.getStopTime().toMillis());
+                }
+            }
+        }
+
+    }
+
 
 
 
