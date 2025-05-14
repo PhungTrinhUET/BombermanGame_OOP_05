@@ -9,6 +9,7 @@ import uet.oop.bomberman.Main;
 import uet.oop.bomberman.display.scene.BombermanGame;
 import uet.oop.bomberman.display.scene.MenuScene;
 
+//Class NewHighScore
 public class NewHighScore extends MenuScene {
     TextField textField;
     public NewHighScore() {
