@@ -82,3 +82,25 @@ Khối không phá được, không di chuyển vào được.
 Dưới đây là hình ảnh Stage 1 của trò chơi:
 ![HomeGame](https://github.com/user-attachments/assets/ab222b34-9bb6-4dec-b2ba-44384126198c)
 
+## 🌲 Cây kế thừa theo Package
+
+Dưới đây là sơ đồ kế thừa (Inheritance Tree) cho từng package trong dự án:
+
+### 📺 Display Package
+![Display package](https://github.com/user-attachments/assets/f906a0c1-ebde-4e4d-8cc1-a0fb6cf521ca)
+
+### 👾 Entities Package
+![Entities package](https://github.com/user-attachments/assets/c747db8e-960a-41f1-ba9c-464f487e491b)
+
+### 🎨 Graphics Package
+![Graphics package](https://github.com/user-attachments/assets/c57e8776-cec1-40ad-8149-fbffbdd5904f)
+
+### 🔊 Sound Package
+![Sound package](https://github.com/user-attachments/assets/4564b3ed-084c-4ccc-b19f-90600d82e50d)
+
+### ⚙️ Util Package
+![Util package](https://github.com/user-attachments/assets/e30f0896-e414-48df-a5c1-d68786654f23)
+
+
+
+
