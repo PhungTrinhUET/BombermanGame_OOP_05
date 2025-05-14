@@ -354,6 +354,29 @@ public class Board implements Serializable {
         bombs.add(bom);
     }
 
+    public void decreaseExits() {
+        --exitsCount;
+    }
+
+    public void spawnEnemies(int xUnit, int yUnit) {
+        switch (itemType) {
+            case 's':
+                for (int i = 0; i < 8; ++i) {
+                    enemies.add(new Doll(xUnit, yUnit));
+                }
+                break;
+            case 'b':
+                for (int i = 0; i < 8; ++i) {
+                    enemies.add(new Ballom(xUnit, yUnit));
+                }
+                break;
+            case 'f':
+                for (int i = 0; i < 8; ++i) {
+                    enemies.add(new Oneal(xUnit, yUnit));
+                }
+                break;
+        }
+    }
 
 }
 
