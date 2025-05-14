@@ -325,6 +325,7 @@ public class Board implements Serializable {
 
     /**
      * Tính toán hướng di chuyển của kẻ thù.
+     *
      * @param enemy kẻ thù cần tính toán
      * @return hướng di chuyển
      */
@@ -342,7 +343,8 @@ public class Board implements Serializable {
         layBombSound.play();
         (new Timer()).schedule(new TimerTask() {
             @Override
-            public void run() {layBombSound.stop();
+            public void run() {
+                layBombSound.stop();
             }
         }, (int) layBombSound.getStopTime().toMillis());
 
@@ -375,6 +377,48 @@ public class Board implements Serializable {
                     enemies.add(new Oneal(xUnit, yUnit));
                 }
                 break;
+        }
+    }
+
+    public void update() {
+        stillObjects.forEach(Layer::update);
+        enemies.forEach(enemy -> {
+            enemy.update();
+            layBomb(enemy);
+        });
+        if (bomber != null) bomber.update();
+        layBomb(bomber);
+
+        //no lambda to avoid ConcurrentModificationException.
+        for (int i = bombs.size() - 1; i >= 0; --i) {
+            bombs.get(i).setJustLay(false);
+            for (int j = enemies.size() - 1; j >= 0; --j) {
+                if (collide(bombs.get(i), enemies.get(j))) {
+                    bombs.get(i).setJustLay(true);
+                    break;
+                }
+            }
+            if (collide(bomber, bombs.get(i))) {
+                bombs.get(i).setJustLay(true);
+            }
+            bombs.get(i).update();
+        }
+
+        //no lambda to avoid ConcurrentModificationException.
+        for (int i = flames.size() - 1; i >= 0; --i) {
+            flames.get(i).update();
+        }
+
+        bomberCollide();
+        enemyCollide();
+        if (bomber != null) {
+            if (bomber.isDead() || exitsCount == 0) {
+                endGame = true;
+                bombs.forEach(bomb -> bomb.setBroken(true));
+            }
+            if (bomber.isInPortal() && enemies.isEmpty()) {
+                nextLevel = true;
+            }
         }
     }
 
