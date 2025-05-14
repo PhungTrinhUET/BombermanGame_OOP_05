@@ -49,6 +49,21 @@ package uet.oop.bomberman.util.gameUtil;
 
 import java.util.Random;
 
+/**
+ *  <i>Standard</i> random number generation functions.
+ *  <p>
+ *  This class provides methods for generating random numbers
+ *  from different distributions (uniform, Bernoulli, Gaussian,
+ *  Poisson, exponential, Pareto, and Cauchy).
+ *  It also provides methods for shuffling arrays and
+ *  selecting uniformly random permutations.
+ *
+ *  @author Robert Sedgewick
+ *  @author Kevin Wayne
+ *  StdRandom.java là một thư viện tiện ích để tạo số ngẫu nhiên, được phát triển bởi Robert Sedgewick và Kevin Wayne từ Princeton University.
+ *  File này là một phần của thư viện algs4.jar đi kèm với cuốn sách "Algorithms, 4th edition"
+ */
+
 public final class StdRandom {
 
     private static Random random;    // pseudo-random number generator
