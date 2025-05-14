@@ -20,3 +20,57 @@ Bomberman là trò chơi kinh điển, được thiết kế để dễ tiếp c
    [git clone https://github.com/yourusername/your-repository.git](https://github.com/PhungTrinhUET/BombermanGame_OOP_05.git)
 2. ## UML Class Diagram
 ![UML Class Diagram](https://github.com/user-attachments/assets/59ed9a0b-fb7d-4ef2-8f5f-c7706ae599e2)
+
+## 🎮 Mô tả đối tượng và Gameplay
+
+### 🕹️ Bomber  
+**Bomber** là nhân vật chính của trò chơi. Bomber có thể di chuyển theo 4 hướng ←/→/↑/↓ theo sự điều khiển của người chơi.
+
+### 👾 Enemy  
+**Enemy** là các đối tượng mà Bomber phải tiêu diệt hết để qua Level. Chúng có thể:
+- 🚶‍♂️ Di chuyển ngẫu nhiên (Balloom)  
+- 🏃‍♂️ “Thông minh” đuổi theo Bomber (Oneal)  
+
+### 💣 Bomb  
+**Bomb** được đặt lên ô 🌿 Grass. Khi kích hoạt:
+1. Bomber & Enemy không thể vào vị trí Bomb.  
+2. Bomber có thêm 1 bước di chuyển ra bên cạnh.  
+3. Sau 2s, Bomb nổ và sinh ra **🔥 Flame**.
+
+### 🌿 Grass  
+Ô duy nhất cho phép di chuyển và đặt Bomb.
+
+### 🧱 Brick  
+- Đặt trên Grass, không đặt Bomb lên được.  
+- Bom bị nổ phá hủy mới thành ô trống.
+
+### 🚧 Wall  
+Khối không phá được, không di chuyển vào được.
+
+### 🚪 Portal  
+Ẩn sau Brick. Xuyên qua khi:
+- Brick bị phá  
+- Tất cả Enemy đã bị tiêu diệt
+
+### 🎁 Item  
+Ẩn sau Brick, chỉ xuất hiện khi Brick bị phá.  
+- ⚡ **SpeedItem**: Tăng tốc Bomber  
+- 🔥 **FlameItem**: Tăng tầm ảnh hưởng của Flame  
+- ➕ **BombItem**: Cho Bomber đặt thêm Bomb
+
+---
+
+## ⚙️ Gameplay, va chạm và nổ Bomb
+
+- **Mục tiêu**: Tiêu diệt tất cả Enemy và tìm Portal.  
+- 💥 Bomber sẽ “chết” khi:
+  - Va chạm Enemy  
+  - Nằm trong tầm nổ Bomb  
+- 💥 Enemy bị tiêu diệt khi nằm trong tầm nổ Bomb  
+- 🔥 **Phạm vi nổ**:  
+  - Trung tâm tại vị trí Bomb  
+  - 4 hướng (↑/↓/←/→) với độ dài mặc định 1 ô (tăng khi dùng FlameItem)  
+  - Gặp Brick/Wall → dừng tại đó  
+  - Gặp Bomb khác → kích hoạt nổ ngay
+
+---
