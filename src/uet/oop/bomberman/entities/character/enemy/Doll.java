@@ -5,7 +5,7 @@ import uet.oop.bomberman.entities.character.Enemy;
 import uet.oop.bomberman.graphics.Sprite;
 import uet.oop.bomberman.util.gameUtil.StdRandom;
 
-public class Dool extends Enemy {
+public class Doll extends Enemy {
     private final double initSpeed;
     private double accel;
     /**
@@ -17,7 +17,7 @@ public class Dool extends Enemy {
      * Khởi tạo sprite cho các trạng thái như Ballom
      * super speed: Base cho Dool là 1.6 + random ừ (0-0.9)
      */
-    public Dool(int x, int y) {
+    public Doll(int x, int y) {
         super(x, y);
         point = 400;
         super.spriteList = new Sprite[]{
